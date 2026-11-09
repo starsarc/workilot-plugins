@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workilot MCP"
+  short_description: "Use Workilot MCP with a repository project binding"
+  default_prompt: "Check this repository's Workilot project binding, then use its project."

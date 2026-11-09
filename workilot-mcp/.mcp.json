@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "workilot-project-binding": {
+      "command": "python3",
+      "args": [
+        "-c",
+        "import os, runpy; from pathlib import Path; home = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex'); roots = list((home / 'plugins' / 'cache').glob('*/workilot-mcp/*')); roots = [p for p in roots if (p / 'tools' / 'project_binding_server.py').is_file()]; roots or (_ for _ in ()).throw(RuntimeError('installed Workilot plugin cache not found')); version = lambda p: (p.name == 'local', tuple(int(part) if part.isdigit() else -1 for part in p.name.split('.'))); runpy.run_path(str(max(roots, key=version) / 'tools' / 'project_binding_server.py'), run_name='__main__')"
+      ]
+    }
+  }
+}
