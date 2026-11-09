@@ -1,0 +1,34 @@
+{
+  "name": "workilot-mcp",
+  "version": "0.4.0",
+  "description": "Configure and use Workilot through Codex's native Bearer MCP connection with repository project binding.",
+  "author": {
+    "name": "Workilot"
+  },
+  "license": "MIT",
+  "keywords": [
+    "workilot",
+    "mcp",
+    "work-items",
+    "project-scoping"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Workilot MCP",
+    "shortDescription": "Configure, check, and use Workilot MCP by project",
+    "longDescription": "Use Codex's native Bearer MCP connection, validate a repository's project binding, and run work-item workflows with explicit project filters.",
+    "developerName": "Workilot",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Configure Codex's Workilot MCP connection and bind this repository to a project."
+    ]
+  },
+  "homepage": "https://github.com/starsarc/workilot-plugins",
+  "repository": "https://github.com/starsarc/workilot-plugins"
+}

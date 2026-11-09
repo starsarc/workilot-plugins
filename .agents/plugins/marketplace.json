@@ -1,0 +1,20 @@
+{
+  "name": "workilot",
+  "interface": {
+    "displayName": "Workilot"
+  },
+  "plugins": [
+    {
+      "name": "workilot-mcp",
+      "source": {
+        "source": "local",
+        "path": "./workilot-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
