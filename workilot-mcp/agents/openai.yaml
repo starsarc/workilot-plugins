@@ -1,4 +1,4 @@
 interface:
   display_name: "Workilot MCP"
-  short_description: "Use Workilot MCP with a repository project binding"
-  default_prompt: "Check this repository's Workilot project binding, then use its project."
+  short_description: "Initialize Workilot MCP and bind this repository to a project"
+  default_prompt: "Initialize Workilot MCP for this repository. Diagnose the Codex connection and binding, complete browser authorization if needed, then guide me to select the repository's project."

@@ -1,7 +1,7 @@
 {
   "name": "workilot-mcp",
-  "version": "0.4.0",
-  "description": "Configure and use Workilot through Codex's native Bearer MCP connection with repository project binding.",
+  "version": "0.6.0",
+  "description": "Connect Workilot through browser authorization and Codex-native Bearer MCP with repository project binding.",
   "author": {
     "name": "Workilot"
   },
@@ -26,7 +26,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Configure Codex's Workilot MCP connection and bind this repository to a project."
+      "Initialize Workilot MCP: diagnose Codex authorization, complete browser login if needed, and bind this repository to a selected project."
     ]
   },
   "homepage": "https://github.com/starsarc/workilot-plugins",
