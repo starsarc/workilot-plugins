@@ -5,16 +5,15 @@ description: Configure the Codex-native Workilot Bearer MCP connection and bind 
 
 # Workilot MCP Setup
 
-Workilot MCP is configured by Codex as a remote Streamable HTTP server. Register the deployed
-`/mcp` endpoint with `codex mcp add workilot --url <endpoint> --bearer-token-env-var
-WORKILOT_MCP_TOKEN`. Codex stores the endpoint URL literally and reads the Agent API key from
-the named environment variable. Never put the token value in repository files, ordinary MCP
-headers, or chat. The user creates or rotates the Agent API key in Workilot and makes it
-available in the Codex process environment.
+Workilot MCP is configured as Codex's remote Streamable HTTP server. Before remote project calls,
+call the local `workilot_connect` tool. It opens Workilot in the browser, waits for the user to
+sign in and approve an organization and operation scopes, verifies MCP initialization and tool
+discovery, then writes the returned Bearer token into Codex's `[mcp_servers.workilot]` HTTP
+authorization setting. Never show or log the token. Never write it into a repository, a project
+binding, or chat. The token is client-level and shared by repositories using this Codex install.
 
-Do not call a plugin login, setup, or token-copy tool. Codex owns the Bearer connection. If the
-remote MCP server is unavailable or unauthorized, explain which Codex MCP setting or Workilot
-key scope needs attention.
+If the configuration is updated but the remote tools are not visible to the current Codex session,
+reload the Codex session once; do not ask the user to run setup commands or copy the token.
 
 Before project work, call `workilot_project_binding` from the local binding server with the
 absolute root path of the current repository as `project_root`. It reads
@@ -29,9 +28,9 @@ project_name = "Workilot"
 
 If it is missing or invalid, call the remote `list_projects`, ask the user to select a project,
 then call `workilot_bind_project` with `project_root` and the exact returned ID, key, and name. Do not select the
-first project implicitly. If the binding is outside the Agent's current scope, stop and ask the
+first project implicitly. If the binding is outside the MCP Token's current scope, stop and ask the
 user to bind again.
 
 For every project-level MCP call, pass the bound `project_id`. The server requires a project
 filter on reads and on every work-item-ID operation, then verifies the work item's actual project
-matches the supplied ID and checks Agent scope, capability, and tool scope.
+matches the supplied ID and checks Token project scope and operation scopes.

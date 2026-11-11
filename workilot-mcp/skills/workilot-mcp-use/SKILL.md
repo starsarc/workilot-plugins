@@ -16,8 +16,8 @@ Pass the bound `project_id` to every project-level and item-ID tool, including `
 `claim_work_item`, comments, run lifecycle, status, result, and confirmation tools. Never omit it.
 The server verifies that an item's actual project matches the supplied project ID.
 
-The project filter narrows the Agent's authorization and cannot grant access to a project. If
-the server rejects the bound project, stop and help the user rebind or request Agent scope changes.
+The project filter narrows the MCP Token's authorization and cannot grant access to a project. If
+the server rejects the bound project, stop and help the user rebind or request Token project scope changes.
 
 For execution, check `list_my_runs`, discover ready work with `list_agent_tasks`, inspect with
 `get_work_item`, and claim when the user's request authorizes execution. Existing authorization
